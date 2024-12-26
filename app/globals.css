@@ -5,6 +5,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gray-classic-50: #f2f2f2;
+  --gray-classic-100: #e6e6e6;
+  --gray-classic-200: #cccccc;
+  --gray-classic-300: #bfbfbf;
+  --gray-classic-400: #b3b3b3;
+  --gray-classic-500: #999999;
+  --gray-classic-600: #808080;
+  --gray-classic-700: #666666;
+  --gray-classic-800: #4d4d4d;
+  --gray-classic-900: #333333;
+
+  --text-8-font-size: 1.75rem;
+  --text-8-line-height: 2.25rem;
+  --text-7-font-size: 1.5rem;
+  --text-7-line-height: 2rem;
+  --text-6-font-size: 1.25rem;
+  --text-6-line-height: 1.75rem;
+  --text-5-font-size: 1.125rem;
+  --text-5-line-height: 1.5rem;
+  --text-4-font-size: 1rem;
+  --text-4-line-height: 1.25rem;
+  --text-3-font-size: 0.875rem;
+  --text-3-line-height: 1rem;
+  --text-2-font-size: 0.75rem;
+  --text-2-line-height: 0.875rem;
+  --text-1-font-size: 0.625rem;
+  --text-1-line-height: 0.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +45,44 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-8 {
+  font-size: var(--text-8-font-size);
+  line-height: var(--text-8-line-height);
+}
+
+.text-7 {
+  font-size: var(--text-7-font-size);
+  line-height: var(--text-7-line-height);
+}
+
+.text-6 {
+  font-size: var(--text-6-font-size);
+  line-height: var(--text-6-line-height);
+}
+
+.text-5 {
+  font-size: var(--text-5-font-size);
+  line-height: var(--text-5-line-height);
+}
+
+.text-4 {
+  font-size: var(--text-4-font-size);
+  line-height: var(--text-4-line-height);
+}
+
+.text-3 {
+  font-size: var(--text-3-font-size);
+  line-height: var(--text-3-line-height);
+}
+
+.text-2 {
+  font-size: var(--text-2-font-size);
+  line-height: var(--text-2-line-height);
+}
+
+.text-1 {
+  font-size: var(--text-1-font-size);
+  line-height: var(--text-1-line-height);
 }
