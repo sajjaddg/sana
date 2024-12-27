@@ -11,17 +11,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        "grey-classic": {
-          50: "var(--grey-classic-50)",
-          100: "var(--grey-classic-100)",
-          200: "var(--grey-classic-200)",
-          300: "var(--grey-classic-300)",
-          400: "var(--grey-classic-400)",
-          500: "var(--grey-classic-500)",
-          600: "var(--grey-classic-600)",
-          700: "var(--grey-classic-700)",
-          800: "var(--grey-classic-800)",
-          900: "var(--grey-classic-900)",
+        "gray-classic": {
+          50: "var(--gray-classic-50)",
+          100: "var(--gray-classic-100)",
+          200: "var(--gray-classic-200)",
+          300: "var(--gray-classic-300)",
+          400: "var(--gray-classic-400)",
+          500: "var(--gray-classic-500)",
+          600: "var(--gray-classic-600)",
+          700: "var(--gray-classic-700)",
+          800: "var(--gray-classic-800)",
+          900: "var(--gray-classic-900)",
         },
       },
       fontSize: {
