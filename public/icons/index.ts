@@ -1,3 +1,4 @@
 import LogoIcon from "./logo-icon"
+import IconArrow from "./Icon-arrow"
 
-export {LogoIcon}
+export { LogoIcon, IconArrow }

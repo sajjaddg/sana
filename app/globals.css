@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -43,7 +64,6 @@
 
 body {
   color: var(--foreground);
-  timeline-scope: --main;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -86,22 +106,4 @@ body {
 .text-1 {
   font-size: var(--text-1-font-size);
   line-height: var(--text-1-line-height);
-}
-
-.home {
-  view-timeline: --main;
-}
-
-.logo {
-  animation: rotateAnimation linear both;
-  animation-timeline: --main;
-  animation-range: exit-crossing -11rem exit-crossing 0;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes rotateAnimation {
-  to {
-    transform: scale(0.5) translate(-50%, -50%);
-  }
 }

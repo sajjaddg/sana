@@ -3,6 +3,8 @@ import "./globals.css"
 import type { Metadata } from "next"
 import LocalFont from "next/font/local"
 
+import { ReactLenis } from "@/utils/lenis"
+
 const ClashGrotesk = LocalFont({
   src: "../public/font/ClashGrotesk.woff2",
   display: "swap",
@@ -20,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ClashGrotesk.className} bg-white antialiased`}>{children}</body>
+      <ReactLenis root>
+        <body className={`${ClashGrotesk.className} bg-white antialiased`}>{children}</body>
+      </ReactLenis>
     </html>
   )
 }
