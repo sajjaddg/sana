@@ -4,7 +4,7 @@ import FirstSection from "./sections/first-section"
 
 export default function AboutMePage() {
   return (
-    <main className="flex flex-col gap-10 px-4">
+    <main className="flex flex-col gap-10 px-4 max-w-[776px] mx-auto">
       <HeaderNav secoundRoute={{ href: "/", title: "Go to my projects" }} firstRoute={{ href: "/", title: "Back to start" }} />
       <FirstSection />
     </main>
