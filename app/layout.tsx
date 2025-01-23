@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import LocalFont from "next/font/local"
 
 import { ReactLenis } from "@/utils/lenis"
+import Header from "./components/header"
 
 const ClashGrotesk = LocalFont({
   src: "../public/font/ClashGrotesk.woff2",
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactLenis root>
-        <body className={`${ClashGrotesk.className} bg-white antialiased`}>{children}</body>
+        <body className={`${ClashGrotesk.className} flex min-h-lvh flex-col bg-white antialiased`}>
+          <Header />
+          {children}
+        </body>
       </ReactLenis>
     </html>
   )
