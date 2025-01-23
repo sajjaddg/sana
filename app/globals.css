@@ -1,6 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-gray-classic-50: var(--gray-classic-50);
+  --color-gray-classic-100: var(--gray-classic-100);
+  --color-gray-classic-200: var(--gray-classic-200);
+  --color-gray-classic-300: var(--gray-classic-300);
+  --color-gray-classic-400: var(--gray-classic-400);
+  --color-gray-classic-500: var(--gray-classic-500);
+  --color-gray-classic-600: var(--gray-classic-600);
+  --color-gray-classic-700: var(--gray-classic-700);
+  --color-gray-classic-800: var(--gray-classic-800);
+  --color-gray-classic-900: var(--gray-classic-900);
+
+  --text-1: var(--text-1-font-size), var(--text-1-line-height);
+  --text-2: var(--text-2-font-size), var(--text-2-line-height);
+  --text-3: var(--text-3-font-size), var(--text-3-line-height);
+  --text-4: var(--text-4-font-size), var(--text-4-line-height);
+  --text-5: var(--text-5-font-size), var(--text-5-line-height);
+  --text-6: var(--text-6-font-size), var(--text-6-line-height);
+  --text-7: var(--text-7-font-size), var(--text-7-line-height);
+  --text-8: var(--text-8-font-size), var(--text-8-line-height);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 html.lenis,
 html.lenis body {
