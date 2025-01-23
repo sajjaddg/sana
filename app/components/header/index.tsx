@@ -3,7 +3,7 @@ import React from "react"
 
 const Header = () => {
   return (
-    <header className="sticky w-full top-0 p-16 text-gray-classic-900">
+    <header className="sticky w-full top-0 p-16 text-gray-classic-900 z-10">
       <LogoIcon className="w-10" />
     </header>
   )
