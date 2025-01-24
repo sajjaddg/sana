@@ -1,5 +1,6 @@
-import { FC } from "react"
 import Link from "next/link"
+import { FC } from "react"
+
 import { IconArrow } from "@/public/icons"
 
 type INav = {
@@ -13,7 +14,7 @@ type IHeaderNav = {
 }
 const HeaderNav: FC<IHeaderNav> = ({ firstRoute, secoundRoute }) => {
   return (
-    <nav className="flex items-center justify-between text-6 text-gray-classic-500">
+    <nav className="text-6 text-gray-classic-500 flex items-center justify-between">
       <Link href={firstRoute.href} className="flex items-center gap-2">
         <IconArrow className="w-6 rotate-90" />
         {firstRoute.title}

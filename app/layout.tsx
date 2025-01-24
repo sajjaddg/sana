@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import LocalFont from "next/font/local"
 
 import { ReactLenis } from "@/utils/lenis"
+
 import Header from "./components/header"
 
 const ClashGrotesk = LocalFont({

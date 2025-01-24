@@ -1,6 +1,6 @@
 const MenuSection = () => {
   return (
-    <section id="id" className="flex min-h-lvh flex-col items-center justify-center text-8 text-gray-classic-800">
+    <section id="id" className="text-8 text-gray-classic-800 flex min-h-lvh flex-col items-center justify-center">
       <ul className="flex flex-col gap-4">
         <li>About me</li>
         <li>My project</li>

@@ -1,6 +1,7 @@
 "use client"
-import { LogoIcon } from "@/public/icons"
 import { motion, useMotionTemplate, useScroll, useTransform } from "motion/react"
+
+import { LogoIcon } from "@/public/icons"
 
 const HeroSection = () => {
   const { scrollYProgress } = useScroll()
@@ -9,7 +10,7 @@ const HeroSection = () => {
   const left = useTransform(scrollYProgress, [0, 0.3], ["50%", "-2%"])
   return (
     <section className="sticky top-0 min-h-lvh snap-center">
-      <motion.div className="absolute w-20 text-gray-classic-900 md:w-40" style={{ top, left, scale }}>
+      <motion.div className="text-gray-classic-900 absolute w-20 md:w-40" style={{ top, left, scale }}>
         <LogoIcon />
       </motion.div>
     </section>

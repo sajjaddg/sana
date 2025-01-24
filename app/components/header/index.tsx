@@ -1,9 +1,10 @@
-import { LogoIcon } from "@/public/icons"
 import React from "react"
+
+import { LogoIcon } from "@/public/icons"
 
 const Header = () => {
   return (
-    <header className="sticky w-full top-0 p-16 text-gray-classic-900 z-10">
+    <header className="text-gray-classic-900 sticky top-0 z-10 w-full p-16">
       <LogoIcon className="w-10" />
     </header>
   )
