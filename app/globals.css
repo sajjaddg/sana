@@ -150,3 +150,7 @@ body {
   font-size: var(--text-1-font-size);
   line-height: var(--text-1-line-height);
 }
+
+.container{
+  @apply first-breack-point:max-w-[776px] pb-24 mx-auto flex max-w-[420px] flex-col gap-10 px-4
+}
