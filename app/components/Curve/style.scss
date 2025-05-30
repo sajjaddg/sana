@@ -1,0 +1,42 @@
+/* Transition overlay - completely isolated from page content */
+.transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.transition-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 600px);
+  transition: opacity 0s linear 0.1s;
+}
+
+.transition-route-text {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  color: white;
+  font-size: 46px;
+  z-index: 10001;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+}
+
+.transition-curve-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh + 600px);
+  z-index: 10000;
+}
+

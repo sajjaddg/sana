@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "./components/Curve/style.scss";
 
 @theme {
   --color-background: var(--background);
@@ -151,6 +152,34 @@ body {
   line-height: var(--text-1-line-height);
 }
 
-.container{
-  @apply first-breack-point:max-w-[776px] pb-24 mx-auto flex max-w-[420px] flex-col gap-10 px-4
+.container {
+  @apply first-breack-point:max-w-[776px] mx-auto flex max-w-[420px] flex-col gap-10 px-4 pb-24;
+}
+
+/* Apply slide-up-out animation only if html element does NOT have 'custom-transition-active' class */
+html:not(.custom-transition-active) ::view-transition-old(home) {
+  animation: slide-up-out 1s ease-in-out;
+}
+::view-transition-new(home) {
+  animation: slide-up-in 1s ease-in-out;
+}
+@keyframes slide-up-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes slide-up-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
