@@ -4,7 +4,7 @@ import { AnimatePresence } from "motion/react"
 import { usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 import { useEffect } from "react"
-import Curve from "./"
+import Curve from "./curve"
 
 interface PageTransitionProps {
   children: ReactNode

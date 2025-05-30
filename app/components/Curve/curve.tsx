@@ -102,11 +102,11 @@ export default function Curve({ backgroundColor, children }: CurveProps) {
   const pathname = usePathname()
 
   const [dimensions, setDimensions] = useState<{
-    width: number | null
-    height: number | null
+    width: number | undefined
+    height: number | undefined
   }>({
-    width: null,
-    height: null,
+    width: undefined,
+    height: undefined,
   })
 
   useEffect(() => {
@@ -124,21 +124,19 @@ export default function Curve({ backgroundColor, children }: CurveProps) {
 
   return (
     <>
-      <motion.div {...anim(content)}>
-        {children}
-      </motion.div>
+      <motion.div {...anim(content)}>{children}</motion.div>
       <div className="transition-overlay">
         <div
           className="transition-background"
           style={{
             backgroundColor,
-            opacity: dimensions.width == null ? 1 : 0,
+            opacity: dimensions.width === undefined ? 1 : 0,
           }}
         />
         <motion.p className="transition-route-text" {...anim(text)}>
           {routes[pathname as keyof typeof routes]}
         </motion.p>
-        {dimensions.width != null && dimensions.height != null && (
+        {dimensions.width !== undefined && dimensions.height !== undefined && (
           <SVG width={dimensions.width} height={dimensions.height} backgroundColor={backgroundColor} />
         )}
       </div>
