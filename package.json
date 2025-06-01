@@ -12,11 +12,14 @@
     "type-check": "tsc -b"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "gsap": "^3.13.0",
     "lenis": "^1.1.18",
     "motion": "^11.15.0",
     "next": "15.3.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",

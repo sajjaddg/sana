@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { unstable_ViewTransition as ViewTransition } from "react"
 
+export const dynamic = "force-static"
+
 export default function MenuPage() {
   return (
     <ViewTransition name="home">

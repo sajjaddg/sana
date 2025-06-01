@@ -24,12 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ReactLenis root>
+      {/* <ReactLenis root> */}
         <body className={`${ClashGrotesk.className} flex min-h-lvh flex-col bg-white antialiased`}>
           <Header />
           {children}
         </body>
-      </ReactLenis>
+      {/* </ReactLenis> */}
     </html>
   )
 }
