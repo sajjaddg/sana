@@ -27,35 +27,41 @@ const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
     const section = sectionRef.current
     if (!section) return
 
-    // Initialize scroll timeout
+    // Initialize scroll timeout with a shorter delay
     scrollTimeout.current = gsap
-      .delayedCall(1, function () {
+      .delayedCall(0.2, function () {
         allowScroll.current = true
       })
       .pause()
 
     const intentObserver = ScrollTrigger.observe({
       target: window,
-      type: "wheel,touch",
+      type: "wheel,touch,pointer,keyboard",
       onUp: () => {
-        if (allowScroll.current) {
+        if (activeIndex > 0) {
           allowScroll.current = false
           scrollTimeout.current?.restart(true)
-          setActiveIndex((prev) => (prev > 0 ? prev - 1 : 0))
+          setActiveIndex((prev) => prev - 1)
+        } else {
+          // Allow scrolling up when at first item
+          allowScroll.current = true
+          intentObserver.disable()
         }
       },
       onDown: () => {
-        if (allowScroll.current) {
-          allowScroll.current = activeIndex === data.length - 1
+        if (activeIndex < data.length - 1) {
+          allowScroll.current = false
           scrollTimeout.current?.restart(true)
-          setActiveIndex((prev) => (prev < data.length - 1 ? prev + 1 : data.length - 1))
+          setActiveIndex((prev) => prev + 1)
+        } else {
+          // Allow scrolling down when at last item
+          allowScroll.current = true
+          intentObserver.disable()
         }
       },
-      tolerance: 10,
       preventDefault: true,
       onEnable(self) {
-        allowScroll.current = false
-        scrollTimeout.current?.restart(true)
+        allowScroll.current = true
         // Save scroll position and prevent native scroll
         const savedScroll = self.scrollY()
         const observer = self as CustomObserver
@@ -70,30 +76,31 @@ const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
       },
     })
 
-    // Create pin trigger
-    const pinTrigger = ScrollTrigger.create({
+    // Add scroll trigger to detect when section enters viewport
+    const scrollTrigger = ScrollTrigger.create({
       trigger: section,
-      pin: true,
-      start: "top top",
-      end: "+=200",
-      onEnter: (self) => {
-        if (intentObserver.isEnabled) return
-        self.scroll(self.start + 1)
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => {
         intentObserver.enable()
       },
-      onEnterBack: (self) => {
-        if (intentObserver.isEnabled) return
-        self.scroll(self.end - 1)
-        intentObserver.enable()
+      onLeaveBack: () => {
+        intentObserver.disable()
       },
+      onLeave: () => {
+        intentObserver.disable()
+      },
+      onEnterBack: () => {
+        intentObserver.enable()
+      }
     })
 
     return () => {
       intentObserver.kill()
-      pinTrigger.kill()
       scrollTimeout.current?.kill()
+      scrollTrigger.kill()
     }
-  }, [data.length])
+  }, [data.length, activeIndex])
 
   return (
     <motion.section ref={sectionRef} className="flex flex-col gap-4 md:flex-row">
