@@ -5,12 +5,13 @@ import ScoundSection from "./sections/secound-section"
 import HeaderNav from "@/app/components/header-nav"
 import { getAboutData } from "@/services/data"
 
-export const revalidate = 60 * 60 * 24 * 2
+// 60 * 60 * 24 * 2 = 172800
+export const revalidate = 172800
 
 export default async function AboutMePage() {
-  const { blocks } = await getAboutData()
-  const firstBlock = blocks[0]
-  const secondBlocks = blocks.slice(1)
+  const data = await getAboutData()
+  const firstBlock = data[0]
+  const secondBlocks = data.slice(1)
   return (
     <ViewTransition name="about">
       <main className="first-breack-point:max-w-[776px] mx-auto flex max-w-[420px] flex-col gap-10 px-4 pb-24">
@@ -18,7 +19,7 @@ export default async function AboutMePage() {
           secoundRoute={{ href: "/my-projects", title: "Go to my projects" }}
           firstRoute={{ href: "/menu", title: "Back to start" }}
         />
-        <FirstSection title={firstBlock.title} description={firstBlock.body} />
+        <FirstSection title={firstBlock.title} description={firstBlock.description} />
         <div className="bg-gray-classic-100 h-px w-full" />
         <ScoundSection data={secondBlocks} />
         <div className="bg-gray-classic-100 h-px w-full" />

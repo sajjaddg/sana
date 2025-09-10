@@ -1,9 +1,9 @@
 "use client"
 
-import type { QuoteBlock } from "@/services/types"
 import { cn } from "@/utils/cn"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
+import { IntroData } from "@/services/types"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -17,7 +17,7 @@ interface CustomObserver {
   _restoreScroll?: () => void
 }
 
-const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
+const ScoundSection = ({ data }: { data: IntroData[] }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
   const allowScroll = useRef(true)
@@ -92,7 +92,7 @@ const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
       },
       onEnterBack: () => {
         intentObserver.enable()
-      }
+      },
     })
 
     return () => {
@@ -107,7 +107,7 @@ const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
       <div className="hidden flex-[1] flex-col gap-4 md:flex">
         {data.map((item, index) => (
           <motion.h1
-            key={item.id}
+            key={item._id}
             className={cn("text-5 text-gray-classic-900", activeIndex === index && "text-7 font-medium")}
             initial={{ opacity: 0.5 }}
             animate={{
@@ -133,7 +133,7 @@ const ScoundSection = ({ data }: { data: QuoteBlock[] }) => {
             transition={{ duration: 0.3 }}
             className="text-6 text-gray-classic-700"
           >
-            {data[activeIndex].body}
+            {data[activeIndex].description}
           </motion.p>
         </AnimatePresence>
       </div>
