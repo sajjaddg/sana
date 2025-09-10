@@ -4,10 +4,10 @@ import { cn } from "@/utils/cn"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { IntroData } from "@/services/types"
-import gsap from "gsap"
+import gsapLib from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-gsap.registerPlugin(ScrollTrigger)
+gsapLib.registerPlugin(ScrollTrigger)
 
 interface CustomObserver {
   isEnabled: boolean
@@ -35,13 +35,14 @@ const ScoundSection = ({ data }: { data: IntroData[] }) => {
       .pause()
 
     const intentObserver = ScrollTrigger.observe({
+      // eslint-disable-next-line unicorn/prefer-global-this
       target: window,
       type: "wheel,touch,pointer,keyboard",
       onUp: () => {
         if (activeIndex > 0) {
           allowScroll.current = false
           scrollTimeout.current?.restart(true)
-          setActiveIndex((prev) => prev - 1)
+          setActiveIndex((previous) => previous - 1)
         } else {
           // Allow scrolling up when at first item
           allowScroll.current = true
@@ -52,7 +53,7 @@ const ScoundSection = ({ data }: { data: IntroData[] }) => {
         if (activeIndex < data.length - 1) {
           allowScroll.current = false
           scrollTimeout.current?.restart(true)
-          setActiveIndex((prev) => prev + 1)
+          setActiveIndex((previous) => previous + 1)
         } else {
           // Allow scrolling down when at last item
           allowScroll.current = true

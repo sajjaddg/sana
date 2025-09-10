@@ -24,7 +24,7 @@ const FirstSection = ({ title, description }: { title: string; description: stri
           />
         </div>
         <button className="text-6 cursor-pointer self-start text-[#999999]" onClick={() => setOpen((pre) => !pre)}>
-          {!open ? "Show more" : "Show less"}
+          {open ? "Show less" : "Show more"}
         </button>
       </div>
     </section>

@@ -6,7 +6,7 @@ import HeaderNav from "@/app/components/header-nav"
 import { getAboutData } from "@/services/data"
 
 // 60 * 60 * 24 * 2 = 172800
-export const revalidate = 172800
+export const revalidate = 172_800
 
 export default async function AboutMePage() {
   const data = await getAboutData()
