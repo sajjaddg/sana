@@ -4,10 +4,10 @@ import { cn } from "@/utils/cn"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { IntroData } from "@/services/types"
-import gsapLib from "gsap"
+import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-gsapLib.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 interface CustomObserver {
   isEnabled: boolean
