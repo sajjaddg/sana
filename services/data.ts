@@ -1,4 +1,4 @@
-import { IntroData } from "./types"
+import { IntroData, IProjectsData } from "./types"
 import { unstable_cache } from "next/cache"
 import { client } from "@/utils/sanity.client"
 
@@ -26,4 +26,9 @@ const getAboutData = unstable_cache(
   },
 )
 
-export { getIntroData, getAboutData }
+const getProjects = async (): Promise<IProjectsData[]> => {
+  const data = await await client.fetch(`*[_type == "projects"]{title,description,content,duration,image,industry,myRole,_id}`)
+  return data
+}
+
+export { getIntroData, getAboutData, getProjects }
