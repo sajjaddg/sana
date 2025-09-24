@@ -5,11 +5,12 @@ import { notFound } from "next/navigation"
 import { getProjectBySlug } from "@/services/data"
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  const project = await getProjectBySlug(params.slug)
+  const { slug } = await params
+  const project = await getProjectBySlug(slug)
 
   if (!project) {
     notFound()
@@ -22,7 +23,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         secoundRoute={{ href: "/about", title: "Go to About me" }}
       />
       <section className="relative z-10 mt-20">
-        <ViewTransition name={`project-image-${params.slug}`}>
+        <ViewTransition name={`project-image-${slug}`}>
           <Image
             src={project.image}
             width={0}

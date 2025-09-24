@@ -1,9 +1,7 @@
-import { FC } from "react"
+import { FC, unstable_ViewTransition as ViewTransition } from "react"
 import Image from "next/image"
-import { unstable_ViewTransition as ViewTransition } from "react"
-
-import { IProject } from "@/services/types"
 import Link from "next/link"
+import { IProject } from "@/services/types"
 
 const ProjectCard: FC<Pick<IProject, "slug" | "image" | "title">> = ({ image, title, slug }) => {
   return (
