@@ -12,7 +12,7 @@ export default function MenuPage() {
             <Link href="/about-me">About me</Link>
           </li>
           <li>
-            <Link href="/my-projects">My project</Link>
+            <Link href="/project">My project</Link>
           </li>
           <li>Experiences</li>
           <li className="pt-6">Call me</li>

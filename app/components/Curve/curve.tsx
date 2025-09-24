@@ -82,7 +82,7 @@ const routes = {
   "/": "Home",
   "/menu": "Menu",
   "/about-me": "About Me",
-  "/my-projects": "My Projects",
+  "/project": "My Projects",
 }
 
 const anim = (variants: any) => {

@@ -27,7 +27,7 @@ const getAboutData = unstable_cache(
 )
 
 const getProjects = async (): Promise<IProjectsData[]> => {
-  const data = await await client.fetch(`*[_type == "projects"]{title,description,content,duration,image,industry,myRole,_id}`)
+  const data = await client.fetch(`*[_type == "projects"] | order(order asc, _createdAt asc) {title,image,_id, slug}`)
   return data
 }
 

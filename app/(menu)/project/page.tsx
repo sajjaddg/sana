@@ -14,7 +14,7 @@ export default async function MyProjectsPage() {
       />
       <div className="first-breack-point:columns-2 columns-1 gap-4">
         {data.map((item) => (
-          <ProjectCard key={item._id} title={item.title} src={item.image} />
+          <ProjectCard key={item._id} title={item.title} slug={item.slug} image={item.image} />
         ))}
       </div>
     </main>
