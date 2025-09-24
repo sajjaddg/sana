@@ -9,7 +9,7 @@ const Header = () => {
   const path = usePathname()
   return (
     <header className="text-gray-classic-900 sticky top-0 z-10 w-full p-16">
-      <Link href="/menu" className={path === "/menu" ? "pointer-events-none" : ""}>
+      <Link href="/menu" className={path === "/menu" ? "pointer-events-none" : "self-end"}>
         <LogoIcon className="w-10" />
       </Link>
     </header>

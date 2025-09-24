@@ -81,7 +81,7 @@ export const content = {
 const routes = {
   "/": "Home",
   "/menu": "Menu",
-  "/about-me": "About Me",
+  "/about": "About Me",
   "/project": "My Projects",
 }
 
